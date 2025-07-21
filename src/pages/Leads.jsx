@@ -29,7 +29,7 @@ const Leads = () => {
   const [newCommentText, setNewCommentText] = useState("");
   const [agents, setAgents] = useState([]);
   const [agentMap, setAgentMap] = useState({});
-
+  const [message, setMessage] = useState({ type: "", text: "" });
   useEffect(() => {
     if (data) {
       setLeads(data.leads);
@@ -98,10 +98,21 @@ const Leads = () => {
 
     try {
       await axios.put(`${BASE_URL}/leads/${id}`, updatedLead);
-      alert("Lead updated successfully!");
+      setMessage({
+        type: "success",
+        text: "✅ Lead Edited successfully!",
+      });
+
+      setTimeout(() => {
+        setMessage({ type: "", text: "" });
+      }, 2000);
     } catch (error) {
       console.error("Failed to update lead:", error);
-      alert("Failed to update lead.");
+      setMessage({ type: "error", text: "❌ Failed to Edit lead." });
+
+      setTimeout(() => {
+        setMessage({ type: "", text: "" });
+      }, 2500);
     }
   };
 
@@ -241,6 +252,16 @@ const Leads = () => {
               setFormData({ ...formData, timeToClose: e.target.value })
             }
           />
+          {/* ✅ Success/Error Message */}
+          {message.text && (
+            <div
+              className={`form-message ${
+                message.type === "success" ? "form-success" : "form-error"
+              }`}
+            >
+              {message.text}
+            </div>
+          )}
 
           <button className="edit-btn" type="submit">
             Edit

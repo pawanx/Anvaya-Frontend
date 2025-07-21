@@ -85,7 +85,7 @@ const Home = () => {
 
           {/* quick filters */}
           <div className="filters">
-            <h2>Quick Filters: </h2>
+            <h2>Lead Cards: </h2>
             <div className="filter">
               <span
                 className={`filter-item ${

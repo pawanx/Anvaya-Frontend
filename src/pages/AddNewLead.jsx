@@ -47,6 +47,10 @@ const AddNewLead = () => {
       };
       await axios.post(`${BASE_URL}/leads`, leadData);
       setMessage({ type: "success", text: "Lead created successfully!" });
+      setTimeout(() => {
+        setMessage({ type: "", text: "" });
+        navigate("/"); // move after message disappears
+      }, 2000);
     } catch (error) {
       setMessage({
         type: "error",
@@ -106,6 +110,9 @@ const AddNewLead = () => {
                 setFormData({ ...formData, source: e.target.value })
               }
             >
+              <option value="" disabled selected hidden>
+                Select a source
+              </option>
               <option value="Website">Website</option>
               <option value="Referral">Referral</option>
               <option value="Cold Call">Cold Call</option>
