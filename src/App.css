@@ -518,3 +518,24 @@ main .main-subheading {
   border-radius: 8px;
   border: 1px solid red;
 }
+
+/* Add lead after */
+.form-message {
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form-success {
+  background-color: #e6ffed;
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
+}
+
+.form-error {
+  background-color: #ffe6e6;
+  color: #c62828;
+  border: 1px solid #c62828;
+}

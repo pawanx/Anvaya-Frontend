@@ -17,6 +17,7 @@ const AddNewLead = () => {
     timeToClose: "",
     tags: [],
   });
+  const [message, setMessage] = useState({ type: "", text: "" });
 
   const { data, loading, error } = useFetch(`${BASE_URL}/agents`);
   useEffect(() => {
@@ -45,11 +46,13 @@ const AddNewLead = () => {
         tags: formData.tags.map((tag) => tag.value),
       };
       await axios.post(`${BASE_URL}/leads`, leadData);
-      alert("Lead created successfully!");
+      setMessage({ type: "success", text: "Lead created successfully!" });
       navigate("/");
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert(error?.response?.data?.error || "Failed to create lead.");
+      setMessage({
+        type: "error",
+        text: error?.response?.data?.error || "Failed to create lead.",
+      });
     }
   };
   return (
@@ -179,6 +182,16 @@ const AddNewLead = () => {
                 setFormData({ ...formData, tags: selected })
               }
             />
+            {message.text && (
+              <div
+                className={`form-message ${
+                  message.type === "success" ? "form-success" : "form-error"
+                }`}
+              >
+                {message.text}
+              </div>
+            )}
+
             <button className="createLead-btn" type="submit">
               Create Lead
             </button>
