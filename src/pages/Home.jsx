@@ -24,7 +24,14 @@ const Home = () => {
       </div>
     );
 
-  if (error) return <p>Error Occured while fetching data.</p>;
+  if (error)
+    return (
+      <div className="error-container">
+        <div className="alert alert-danger" role="alert">
+          ⚠️ Error occurred while fetching data.
+        </div>
+      </div>
+    );
 
   const filteredLeadData =
     selectedFilter === "All"

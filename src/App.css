@@ -492,3 +492,11 @@ main .main-subheading {
   align-items: center;
   height: 100vh; /* full screen height */
 }
+/* Error container */
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* full viewport height */
+  text-align: center;
+}
