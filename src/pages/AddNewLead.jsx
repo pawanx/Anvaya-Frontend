@@ -47,7 +47,6 @@ const AddNewLead = () => {
       };
       await axios.post(`${BASE_URL}/leads`, leadData);
       setMessage({ type: "success", text: "Lead created successfully!" });
-      navigate("/");
     } catch (error) {
       setMessage({
         type: "error",
