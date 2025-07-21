@@ -17,17 +17,15 @@ const Home = () => {
 
   if (loading)
     return (
-      <div className="spinner-container">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
+      <div className="center-screen">
+        <div className="custom-spinner"></div>
       </div>
     );
 
   if (error)
     return (
-      <div className="error-container">
-        <div className="alert alert-danger" role="alert">
+      <div className="center-screen">
+        <div className="custom-error">
           ⚠️ Error occurred while fetching data.
         </div>
       </div>
