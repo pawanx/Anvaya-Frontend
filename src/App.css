@@ -1,0 +1,487 @@
+.home-navigation {
+  text-decoration: none;
+}
+.view {
+  display: flex;
+  flex-grow: 1;
+  min-height: 100vh;
+  /* background-color: #f7f9fb; */
+  flex-direction: row; /* default for desktop */
+  background: transparent;
+}
+@media (max-width: 768px) {
+  .view {
+    flex-direction: column; /* stack sidebar on top for small screens */
+  }
+}
+/* Sidebar CSS */
+.sidebar {
+  width: 250px;
+  background-color: rgb(255, 255, 255);
+  padding: 20px 10px;
+  box-shadow: 2px 0 8px var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+}
+.sidebar h1 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+}
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-nav li {
+  margin-bottom: 15px;
+  padding: 5px 0;
+}
+.sidebar-nav .side-nav-item {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+.sidebar-nav .side-nav-item:hover {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 2px 6px var(--card-shadow);
+}
+
+/* responsive sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 2px 6px var(--card-shadow);
+  }
+
+  .sidebar h1 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .sidebar-nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar-nav li {
+    margin: 0;
+  }
+
+  .side-nav-item {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+}
+
+/* Main CSS */
+main {
+  flex: 1;
+  padding: 20px 30px;
+}
+main .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+main .row .card-col {
+  width: 100%;
+  /* background-color: #ffffff; */
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 300px;
+  flex-grow: 1;
+}
+main .row .card-col .card-link {
+  text-decoration: none;
+}
+.card-col:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+main .row .card {
+  padding: 30px;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+main h1 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+main .main-subheading {
+  color: var(--primary-color);
+  margin-bottom: 30px;
+}
+.dashboard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.add-new-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+.add-new-btn:hover {
+  background-color: #357abd;
+}
+.lead-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.lead-status {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px var(--card-shadow);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+.lead-status h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+/* filters */
+.filters h2 {
+  color: var(--primary-color);
+}
+.filter {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.filter-item {
+  margin-right: 30px;
+  padding: 8px;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+.filter-item:hover {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+}
+.active-filter {
+  background-color: var(--primary-color);
+  color: white;
+}
+/* Lead Management */
+.main-div .main-header {
+  text-align: center;
+  margin-bottom: 35px;
+  color: black;
+}
+.main-div .main-header .lead-name {
+  color: var(--primary-color);
+}
+.main-subheading-header {
+  margin-bottom: 10px;
+  margin-top: 20px;
+  color: var(--primary-color);
+}
+.main-subheading hr {
+  margin: 10px 0px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+.form-group .form-label {
+  font-weight: 600;
+}
+.form-group .form-input {
+  width: 50%;
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 16px;
+}
+.form-group .form-select {
+  width: 50%;
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 16px;
+}
+.edit-btn {
+  background-color: white;
+  color: var(--primary-color);
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: 2px solid var(--primary-color);
+  width: fit-content;
+  max-width: 200px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .edit-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Lead Comments */
+.comment-section {
+  margin-top: 30px;
+  padding: 10px 0;
+}
+.comment-area {
+  width: 50%;
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.addNewComment-btn {
+  background-color: white;
+  color: var(--primary-color);
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: 2px solid var(--primary-color);
+  text-align: left;
+  margin-top: 15px;
+}
+.addNewComment-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+.comment-cards {
+  margin: 10px 0;
+}
+.comment-cards {
+  padding: 30px;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.comment-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px var(--card-shadow);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+/* Lead List Page  */
+.lead-filters {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.leadfilter-label {
+  font-weight: 550;
+  margin-right: 5px;
+}
+.select-lead-filter {
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+  padding: 5px 15px;
+  font-size: 16px;
+}
+.reset-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.lead-list {
+  margin-top: 25px;
+}
+.lead-list-item {
+  padding: 10px;
+  list-style: none;
+}
+.sort-by-filter {
+  display: flex;
+  justify-items: left;
+  gap: 20px;
+}
+.sort-by-filter h3 {
+  color: var(--primary-color);
+}
+.main-subheading-with-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -15px;
+}
+
+.addNewLead-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .addNewLead-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* add new lead */
+.main-top {
+  text-align: center;
+  padding: 2px 10px;
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  text-decoration: none;
+}
+.createLead-btn {
+  width: 10%;
+  padding: 8px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+.createLead-btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+@media (max-width: 768px) {
+  .createLead-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Lead By Status */
+.status-list-div {
+  margin: 20px 0;
+}
+.status-list-div .status-list {
+  margin: 30px 0;
+}
+.list-group {
+  list-style: none;
+  margin-top: 10px;
+}
+.list-group .list-group-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid lightgray;
+  padding: 10px 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  width: 50%;
+  transition: 0.5s ease-in-out;
+  box-shadow: 2px 0 8px var(--card-shadow);
+  text-decoration: none;
+}
+.list-group .list-group-item:hover {
+  transform: translateY(-5px);
+  border: 2px solid lightblue;
+}
+.delete-btn {
+  background-color: #dc3545; /* Bootstrap red */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+  color: white;
+  background-color: red;
+  padding: 5px 10px;
+  position: relative;
+}
+.list-delete {
+  display: flex;
+  justify-content: space-between;
+}
+/* reports */
+/* Chart section styles */
+.chart-section {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--card-shadow);
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chart-section h2 {
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+/* Optional: adjust Pie outer radius for smaller screens */
+@media (max-width: 768px) {
+  .chart-section {
+    padding: 15px;
+  }
+
+  .main-div h1 {
+    font-size: 1.5rem;
+  }
+
+  .chart-section h2 {
+    font-size: 1.2rem;
+  }
+}
