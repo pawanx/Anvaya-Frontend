@@ -485,3 +485,10 @@ main .main-subheading {
     font-size: 1.2rem;
   }
 }
+/* loading Spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* full screen height */
+}

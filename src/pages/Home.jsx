@@ -15,7 +15,15 @@ const Home = () => {
     }
   }, [data]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="spinner-container">
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+
   if (error) return <p>Error Occured while fetching data.</p>;
 
   const filteredLeadData =
