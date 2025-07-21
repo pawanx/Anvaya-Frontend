@@ -7,7 +7,7 @@ const AddNewSalesAgent = () => {
     name: "",
     email: "",
   });
-  const navigate = useNavigate();
+  const [message, setMessage] = useState({ type: "", text: "" });
   const submitHandler = async (e) => {
     e.preventDefault();
 
@@ -16,11 +16,24 @@ const AddNewSalesAgent = () => {
         ...formData,
       };
       await axios.post(`${BASE_URL}/agents`, agentData);
-      alert("Sales agent created successfully!");
-      navigate("/");
+      setMessage({
+        type: "success",
+        text: "✅ Sales agent created successfully!",
+      });
+
+      setTimeout(() => {
+        setMessage({ type: "", text: "" });
+        navigate("/"); // move after message disappears
+      }, 2000);
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert(error?.response?.data?.error || "Failed to create sales agent.");
+      setMessage({
+        type: "error",
+        text:
+          error?.response?.data?.error || "❌ Failed to create sales agent.",
+      });
+
+      setTimeout(() => setMessage({ type: "", text: "" }), 3000);
     }
   };
   return (
@@ -49,7 +62,15 @@ const AddNewSalesAgent = () => {
             <h2>Sales Agent Form: </h2>
             <hr />
           </div>
-
+          {message.text && (
+            <div
+              className={`form-message ${
+                message.type === "success" ? "form-success" : "form-error"
+              }`}
+            >
+              {message.text}
+            </div>
+          )}
           <form
             id="addLeadForm"
             className="form-group"

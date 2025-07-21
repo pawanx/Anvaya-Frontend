@@ -9,6 +9,7 @@ const LeadList = () => {
   const [selectedSalesFilter, setSelectedSalesFilter] = useState("All");
   const [sortOption, setSortOption] = useState("");
   const [LeadData, setLeads] = useState([]);
+  const [message, setMessage] = useState({ type: "", text: "" });
   const { data, loading, error } = useFetch(`${BASE_URL}/leads`);
 
   useEffect(() => {
@@ -46,10 +47,18 @@ const LeadList = () => {
     try {
       await axios.delete(`${BASE_URL}/leads/${leadId}`);
       setLeads((prev) => prev.filter((lead) => lead._id !== leadId));
-      alert("Lead deleted successfully");
+      setMessage({ type: "success", text: "✅ Lead deleted successfully." });
+
+      setTimeout(() => {
+        setMessage({ type: "", text: "" });
+      }, 2500);
     } catch (err) {
       console.error("Error deleting lead:", err);
-      alert("Failed to delete lead");
+      setMessage({ type: "error", text: "❌ Failed to delete lead." });
+
+      setTimeout(() => {
+        setMessage({ type: "", text: "" });
+      }, 2500);
     }
   };
 
@@ -82,6 +91,17 @@ const LeadList = () => {
           </Link>
         </div>
         <hr />
+
+        {/* ✅ Success/Error Message */}
+        {message.text && (
+          <div
+            className={`form-message ${
+              message.type === "success" ? "form-success" : "form-error"
+            }`}
+          >
+            {message.text}
+          </div>
+        )}
 
         {/* quick filters */}
         <div className="filters">
