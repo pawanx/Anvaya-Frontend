@@ -149,10 +149,11 @@ main .main-subheading {
   background-color: #357abd;
 }
 .lead-details {
-  display: flex;
-  justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid #eee;
+  display: flex;
+  gap: 20px;
+  justify-content: start;
 }
 .lead-status {
   background-color: #ffffff;
