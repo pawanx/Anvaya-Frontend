@@ -43,11 +43,20 @@ Watch a walk through (5 min) of all the major features of the app:
 **Home**
 
 - See all the leads on homepage.
-- Add new leads.
+- "Add new lead" to add a new lead to the system.
+- Quick filters to filter by lead status.
 
 **List Leads**
 
-- See all the leads name and delete them.
+- See all the leads name.
+- "Delete" to delete the list from the system.
+- Filter by status and agents and sort by prioroty and time to close.
+
+**List Sales Agents**
+
+- See all the agents name.
+- Filter by lead status and priority.
+- "Create new agent" to add new agents to DB.
 
 **Reports**
 
@@ -92,6 +101,60 @@ Sample Response:
 
 ```
 [{"message": "Lead deleted successfully."}]
+```
+
+### **POST /api/agents**
+
+Add New Agent
+Sample Response:
+
+```
+{_id, name, email, createdAt}
+```
+
+### **GET /api/agents**
+
+Get the Agents list.
+Sample Response:
+
+```
+[{_id, name, email}]
+```
+
+### **POST /api/comments**
+
+Add New Comment
+Sample Response:
+
+```
+{_id, commenttext, author, createdAt}
+```
+
+### **GET /api/leads/:id/comments**
+
+Get the comment list for a lead.
+Sample Response:
+
+```
+[{_id, commenttext, author, createdAt}]
+```
+
+### **GET /api/report/last-week**
+
+Fetches all leads that were closed (status: Closed) in the last 7 days.
+Sample Response:
+
+```
+[{_id, name, salesAgents, closedAt}]
+```
+
+### **GET /api/report/pipeline**
+
+Fetches the total number of leads currently in the pipeline (all statuses except Closed).
+Sample Response:
+
+```
+{totalLeadsInPipeline}
 ```
 
 ---
