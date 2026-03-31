@@ -73,9 +73,24 @@ Add New Lead
 Sample Response:
 
 ```
-[
-{_id, name, source, salesAgent, status, tags, timeToClose, priority, createdAt, updatedAt}
-]
+{
+      _id: "334645",
+      name: "Global Innovations Ltd.",
+      source: "Cold Call",
+      salesAgent: {
+        _id: "6875e3162e47540f2f67c28f",
+        name: "Bob Williams"
+      },
+      status: "Contacted",
+      tags: [
+        "Follow-up"
+      ],
+      timeToClose: 45,
+      priority: "Medium",
+      createdAt: "2025-07-15T15:11:04.101Z",
+      updatedAt: "2025-07-15T15:11:04.112Z",
+    }
+
 ```
 
 ### **GET /api/leads**
