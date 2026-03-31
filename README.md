@@ -73,7 +73,9 @@ Add New Lead
 Sample Response:
 
 ```
-[{_id, name, source, salesAgent, status, tags, timeToClose, priority, createdAt, updatedAt}]
+[
+{_id, name, source, salesAgent, status, tags, timeToClose, priority, createdAt, updatedAt}
+]
 ```
 
 ### **GET /api/leads**
@@ -82,7 +84,25 @@ Get all leads.
 Sample Response:
 
 ```
-[{_id, name, source, salesAgent, status, tags, timeToClose, priority, createdAt, updatedAt}]
+[
+ {
+      _id: "334645",
+      name: "Global Innovations Ltd.",
+      source: "Cold Call",
+      salesAgent: {
+        _id: "6875e3162e47540f2f67c28f",
+        name: "Bob Williams"
+      },
+      status: "Contacted",
+      tags: [
+        "Follow-up"
+      ],
+      timeToClose: 45,
+      priority: "Medium",
+      createdAt: "2025-07-15T15:11:04.101Z",
+      updatedAt: "2025-07-15T15:11:04.112Z",
+    }
+]
 ```
 
 ### **PUT /api/leads/:id**
@@ -91,7 +111,23 @@ Update a lead.
 Sample Response:
 
 ```
-[{_id, name, source, salesAgent, status, tags, timeToClose, priority, createdAt, updatedAt}]
+ {
+      _id: "334645",
+      name: "Global Innovations Ltd.",
+      source: "Cold Call",
+      salesAgent: {
+        _id: "6875e3162e47540f2f67c28f",
+        name: "Bob Williams"
+      },
+      status: "Contacted",
+      tags: [
+        "Follow-up"
+      ],
+      timeToClose: 45,
+      priority: "Medium",
+      createdAt: "2025-07-15T15:11:04.101Z",
+      updatedAt: "2025-07-15T15:11:04.112Z",
+    }
 ```
 
 ### **DELETE /api/leads/:id**
@@ -109,7 +145,12 @@ Add New Agent
 Sample Response:
 
 ```
-{_id, name, email, createdAt}
+{
+_id:12344,
+name: "Bob",
+email: 123@example.com,
+createdAt: "2025-07-15T15:11:04.112Z"
+}
 ```
 
 ### **GET /api/agents**
@@ -118,7 +159,11 @@ Get the Agents list.
 Sample Response:
 
 ```
-[{_id, name, email}]
+[{
+_id: "2424",
+name: "Hillman",
+email: "gill@example.com"
+}]
 ```
 
 ### **POST /api/comments**
@@ -127,7 +172,12 @@ Add New Comment
 Sample Response:
 
 ```
-{_id, commenttext, author, createdAt}
+[{
+_id: "123123452",
+commenttext: "Do followup",
+author: "John Doe",
+createdAt: "2025-07-15T15:11:04.112Z"
+}]
 ```
 
 ### **GET /api/leads/:id/comments**
@@ -136,7 +186,12 @@ Get the comment list for a lead.
 Sample Response:
 
 ```
-[{_id, commenttext, author, createdAt}]
+[{
+_id: "123123452",
+commenttext: "Do followup",
+author: "John Doe",
+createdAt: "2025-07-15T15:11:04.112Z"
+}]
 ```
 
 ### **GET /api/report/last-week**
@@ -145,7 +200,13 @@ Fetches all leads that were closed (status: Closed) in the last 7 days.
 Sample Response:
 
 ```
-[{_id, name, salesAgents, closedAt}]
+[
+{
+_id: "124235",
+name: "Dill Man",
+salesAgents : "Jhnah": ,
+closedAt : "2025-07-15T15:11:04.112Z"
+}]
 ```
 
 ### **GET /api/report/pipeline**
